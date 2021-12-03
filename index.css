@@ -1,0 +1,11 @@
+li{
+    display: inline-block;
+    background-color: aqua;
+}
+
+#logo{
+    display: inline;
+}
+#randomizer{
+    display: inline;
+}
