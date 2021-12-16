@@ -15,9 +15,9 @@ export default function () {
       about: () => {
         renderAbout();
       },
-      details: () => {
-        renderDetails();
-      },
+      "activity/:activityID": ({data}) => {
+        renderDetails(data.activityID);
+      }
     })
     .resolve();
 }

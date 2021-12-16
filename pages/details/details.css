@@ -1,0 +1,26 @@
+nav {
+    background-color: #6DECAF!important;
+}
+footer {
+    background-color: #6DECAF!important;
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    /* Height of the footer*/ 
+    height: 65px;
+    background: grey;
+}
+
+body {
+    background-image: url("img_tree.gif");
+  }
+
+  img{
+    width: 400px;
+    height: 400px;
+    display: block;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+  }

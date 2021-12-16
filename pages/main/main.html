@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idea machine</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/pages/main/main.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+      <div class="container">
+        <a href="/" class="navbar-brand">Idea machine</a>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <div class="container" id="main">
+    <main role="main" class="pb-3">
+      <div class="row">
+        <div class="col-5">
+          <div class="filter row">
+            <div id="filter-panel" class="collapse filter-panel col">
+              <div class="panel panel-default">
+                <div class="panel-body vertical-center">
+                  <form class="form-inline" role="form">
+                    <div class="form-group">
+                      <label class="filter-col" style="margin-right:0;" for="pref-type">Type:</label>
+                      <select id="pref-type" class="form-control">
+                        <option selected="selected">-</option>
+                        <option value="recreational">Recreational</option>
+                        <option value="charity">Charity</option>
+                        <option value="busywork">Busywork</option>
+                        <option value="education">Education</option>
+                        <option value="social">Social</option>
+                        <option value="relaxation">Relaxation</option>
+                        <option value="cooking">Cooking</option>
+                        <option value="music">Music</option>
+                        <option value="diy">DIY</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="filter-col" style="margin-right:0;" for="pref-accessibility">Accessibility:</label>
+                      <select id="pref-accessibility" class="form-control">
+                        <option selected="selected">-</option>
+                        <option value="Few to no challenges">Few to no challenges</option>
+                        <option value="Minor challenges">Minor challenges</option>
+                        <option value="Major challenges">Major challenges</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="filter-col" style="margin-right:0;" for="pref-duration">Duration:</label>
+                      <select id="pref-duration" class="form-control">
+                        <option selected="selected">-</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="filter-col" style="margin-right:0;" for="minprice">Min Price:</label>
+                      <select id="minprice" class="form-control">
+                        <option selected="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="filter-col" style="margin-right:0;" for="maxprice">Max Price:</label>
+                      <select id="maxprice" class="form-control">
+                        <option selected="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="filter-col" style="margin-right:0;" for="minparticipants">Min Participants:</label>
+                      <select id="minparticipants" class="form-control">
+                        <option selected="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="filter-col" style="margin-right:0;" for="maxparticipants">Max Participants:</label>
+                      <select id="maxparticipants" class="form-control">
+                        <option selected="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0</option>
+                      </select>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <button type="button" id="filterButton" data-toggle="collapse" data-target=".collapse"
+                class="btn btn-primary vertical-center">
+                Filter the activities
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="randomizingButton">
+            <button type="button" class="btn btn-primary vertical-center" id="randomizer">
+
+            </button>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="activity">
+            <a id="linkForDetails" class="vertical-center">
+              <label id="activityLabel"></label>
+              <img>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  <div class="footer">
+    <footer class="page-footer font-small unique-color-dark pt-4x">
+      <!-- Footer Elements -->
+      <div class="container">
+        <div class="footer-copyright text-left py-3">© 2021 Copyright: Team Future</div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
