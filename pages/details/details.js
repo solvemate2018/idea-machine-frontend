@@ -14,7 +14,7 @@ export default (activityID) => {
   }
   
   function fetchActivity(activityID){
-    fetch('http://localhost:9090/api/activity/' + activityID)
+    fetch(`${window.apiUrl}api/activity/${activityID}`)
     .then(response => response.json())
     .then(data => {
         generateActivityFields(data);

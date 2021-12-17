@@ -46,13 +46,20 @@ function fetchActivity(){
   const label = document.querySelector("#activityLabel");
   const image = document.querySelector("img");
   const link = document.querySelector("#linkForDetails");
-  fetch('http://localhost:9090/api/activity')
+  fetch(`${window.apiUrl}api/activity`)
   .then(response => response.json())
   .then(data => {
     console.log(data);
+    if(data.activity == undefined){
+      label.innerText = "An error has occured! Please contact the developers."
+      image.src = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+      link.href = "/";
+    }
+    else{
     label.innerText = data.activity;
     image.src = data.imageUrl;
     link.href = "/#/activity/" + data.id;
+    }
   }
   );
 }
@@ -100,13 +107,20 @@ function fetchFiltered(event, type, accessibility, duration, minPrice, maxPrice,
   const image = document.querySelector("img");
   const link = document.querySelector("#linkForDetails");
 
-  fetch('http://localhost:9090/api/activity/filter' + attributeString)
+  fetch(`${window.apiUrl}api/activity/filter${attributeString}`)
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    label.innerText = data.activity;
-    image.src = data.imageUrl;
-    link.href = "/#/activity/" + data.id;
+    if(data.activity == undefined){
+      label.innerText = "Sorry, there is not yet activity with such filters!"
+      image.src = "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+      link.href = "/";
+    }
+    else{
+      label.innerText = data.activity;
+      image.src = data.imageUrl;
+      link.href = "/#/activity/" + data.id;
+    }
   }
   );
   event.preventDefault();
