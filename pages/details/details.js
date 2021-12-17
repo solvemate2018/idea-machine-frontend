@@ -23,48 +23,43 @@ export default (activityID) => {
 
   function generateActivityFields(activity){
     const htmlActivity = document.querySelector(".activity");
-
+    const table = document.createElement("table");
+    const table2 = document.createElement("table");
+    const names = ["Type","Number of participants","Accessability","Usual duration"
+    ,"Availability (1-10)","Price (1-10)"];
+    const values = [activity.type,activity.participants,activity.accessibility
+      ,activity.duration,activity.availability * 10, activity.price * 10]
 
     const title = document.createElement("h2");
     title.innerText = activity.activity;
     htmlActivity.appendChild(title);
-
     htmlActivity.appendChild(document.createElement("br"));
 
-    const type = document.createElement("p");
-    type.innerText = "Type: " + activity.type;
-    htmlActivity.appendChild(type);
-
-    const participants = document.createElement("p");
-    participants.innerText = "Number of participants: " + activity.participants;
-    htmlActivity.appendChild(participants);
-
-    const accessibility = document.createElement("p");
-    accessibility.innerText = "Accessability: " + activity.accessibility;
-    htmlActivity.appendChild(accessibility);
-
-    const duration = document.createElement("p");
-    duration.innerText = "Usual duration: " + activity.duration;
-    htmlActivity.appendChild(duration);
-
-    if(activity.kidFriendly){
-        const kidFriendly = document.createElement("p");
-        kidFriendly.innerText = "Kid friendly!";
-        htmlActivity.appendChild(kidFriendly);
+    for(let i = 0; i<names.length; i++){
+      const row = table.insertRow();
+      const cell0 = row.insertCell();
+      const cell1 = row.insertCell();
+      const text0 = document.createTextNode(names[i]);
+      const text1 = document.createTextNode(values[i]);
+      cell0.appendChild(text0);
+      cell1.appendChild(text1);
     }
-
-    const availability = document.createElement("p");
-    availability.innerText = "Availability from 1 to 10: " + (activity.availability * 10);
-    htmlActivity.appendChild(availability);
-
-    const price = document.createElement("p");
-    price.innerText = "Price from 1 to 10: " + (activity.price * 10);
-    htmlActivity.appendChild(price);
+    
+    if(activity.kidFriendly){
+        const row = table2.insertRow();
+        const cell = row.insertCell();
+        const text = document.createTextNode("Kid friendly!")
+        cell.appendChild(text)
+    }
 
     if(activity.link != undefined){
     const link = document.createElement("a");
     link.href = activity.link;
     link.innerText = "More info here...";
-    htmlActivity.appendChild(link);
+    const row = table2.insertRow();
+    const cell = row.insertCell();
+    cell.appendChild(link);
   }
+  htmlActivity.appendChild(table);
+  htmlActivity.appendChild(table2);
 }

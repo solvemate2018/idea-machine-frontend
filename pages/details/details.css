@@ -16,6 +16,25 @@ body {
     background-image: url("img_tree.gif");
   }
 
+  table {
+    font-family: arial, sans-serif;
+    font-size: 20px;
+    border-collapse: collapse;
+    width: 50%;
+    table-layout: fixed;
+  }
+  
+  td,th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
   img{
     width: 400px;
     height: 400px;
